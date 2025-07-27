@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+
+# Env
+.env
+venv/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+
+# Data files
+*.pdf
+*.txt
+*.csv
+vector_store/
