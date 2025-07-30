@@ -8,3 +8,4 @@ langchain
 PyMuPDF
 pandas
 python-multipart
+slowapi
