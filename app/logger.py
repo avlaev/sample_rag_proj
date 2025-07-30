@@ -1,5 +1,18 @@
 import logging
 
+import os
+import logging
+
+# Ensure logs directory exists
+os.makedirs("logs", exist_ok=True)
+
+# Set up logging
+logging.basicConfig(
+    filename="logs/app.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
 # Configure root logger
 logging.basicConfig(
     level=logging.INFO,
