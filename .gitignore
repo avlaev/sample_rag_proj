@@ -14,6 +14,5 @@ venv/
 
 # Data files
 *.pdf
-*.txt
 *.csv
 vector_store/

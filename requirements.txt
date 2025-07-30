@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+openai
+chromadb
+python-dotenv
+nltk
+langchain
+PyMuPDF
+pandas
+python-multipart
