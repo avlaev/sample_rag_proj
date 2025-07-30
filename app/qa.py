@@ -8,6 +8,9 @@ from app.logger import logger
 import nltk
 from nltk.corpus import stopwords
 import re
+from app.limiter import limiter
+from slowapi.util import get_remote_address
+from fastapi import Request
 
 nltk.download('stopwords')
 stop_words = set(stopwords.words("english"))
@@ -23,8 +26,9 @@ def keyword_filter(text):
     return [word for word in words if word not in stop_words]
 
 @router.post("/ask", dependencies=[Depends(verify_api_key)])
-async def ask_question(request: QuestionRequest):
-    question = request.question
+@limiter.limit("5/minute")
+async def ask_question(request: Request, body: QuestionRequest):
+    question = body.question
     logger.info("🔍 Received question: %s", question)
 
     # Step 1: Embed the question using OpenAI
